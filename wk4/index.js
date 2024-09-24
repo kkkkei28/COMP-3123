@@ -73,3 +73,4 @@ app.get('/employee/:fnm/:lnm/:city', (req, res) => {
 app.listen(SERVER_PORT, () => {
     console.log(`Server is running on http://localhost:${SERVER_PORT}`);
 });
+
