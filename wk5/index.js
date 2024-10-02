@@ -10,16 +10,20 @@ const loggerMiddleware  = (req, res, next) => {
     console.log(`Logged  ${req.url}  ${req.method} -- ${new Date()}`);
     next();
 }
+
 // Apply the middleware to all requests - Application Level Middleware
 app.use('/user',loggerMiddleware)
 app.use('/user',userRouter)
 app.use('/emp', empRouter)
+
 // Error end point
 // http://localhost:3000/error
 app.get('/error', (req, res) => {
     throw new Error('This is a forced error');
     res.send('Welcome to Express errror handling');
 })
+
+
 // Error handling middleware
 app.use(errorHandlerMiddleware);
 app.listen(SERVER_PORT, () => {
